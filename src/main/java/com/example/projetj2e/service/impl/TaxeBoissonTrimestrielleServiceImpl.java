@@ -3,20 +3,22 @@ package com.example.projetj2e.service.impl;
 import com.example.projetj2e.bean.Local;
 import com.example.projetj2e.bean.TaxeBoissonTrimestrielle;
 import com.example.projetj2e.dao.TaxeBoissonTrimestrielleDao;
+import com.example.projetj2e.service.facade.TaxeBoissonTrimestrielleService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class TaxeBoissonTrimestrielleServiceImpl {
+public class TaxeBoissonTrimestrielleServiceImpl implements TaxeBoissonTrimestrielleService {
     @Autowired
     private TaxeBoissonTrimestrielleDao taxeBoissonTrimestrielleDao;
 
     public TaxeBoissonTrimestrielle findByReference(String reference) {
         return taxeBoissonTrimestrielleDao.findByReference(reference);
     }
-
+@Transactional
     public int deleteByReference(String reference) {
         return taxeBoissonTrimestrielleDao.deleteByReference(reference);
     }
