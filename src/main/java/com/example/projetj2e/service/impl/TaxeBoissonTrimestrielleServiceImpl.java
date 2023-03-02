@@ -28,7 +28,7 @@ public class TaxeBoissonTrimestrielleServiceImpl {
     public int save(TaxeBoissonTrimestrielle entity) {
         if(findByReference(entity.getReference())!=null){
             return -1;//deja exist
-        }else if(redevableService.findByCin(entity.getRedevable().getCin()==null)){
+        }else if(redevableService.findByCin(entity.getRedevable().getCin())==null){
             return -2;//redevable n'exist pas
         }
         else if(localService.findByReference(entity.getLocal().getRef())==null){
@@ -41,16 +41,22 @@ public class TaxeBoissonTrimestrielleServiceImpl {
             Local local = localService.findByReference(entity.getLocal().getRef());
             local.setCategorieDeLocal(entity.getCategorieDeLocal());
             localService.update(local);
-        }else{
             //si le cetegorie change ==> taux change
+            entity.setTauxTaxeTrimestrielle(tauxTaxeTrimestrielleService.findByCategorieDeLocalCode(entity.getCategorieDeLocal().getCode()));
+
+        }else{
+            //traitment
 
         }
+        return 1;
 
         }
 
     }
     @Autowired
-    private RedevableService redevableService;
+    private RedevableServiceImpl redevableService;
     @Autowired
-    private LocalService localService;
+    private LocalServiceImpl localService;
+    @Autowired
+    private TauxTaxeTrimestrielleServiceImpl tauxTaxeTrimestrielleService;
 }

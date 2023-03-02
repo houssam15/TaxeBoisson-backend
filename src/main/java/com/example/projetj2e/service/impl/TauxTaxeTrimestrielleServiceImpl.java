@@ -24,14 +24,21 @@ public class TauxTaxeTrimestrielleServiceImpl {
         return tauxTaxeTrimestrielleDao.findAll();
     }
 
+    public TauxTaxeTrimestrielle findByCategorieDeLocalCode(String code) {
+        return tauxTaxeTrimestrielleDao.findByCategorieDeLocalCode(code);
+    }
+
     public int save(TauxTaxeTrimestrielle entity) {
         if(findByRef(entity.getRef())==null){
             return -1;
+        }else if(categorieDeLocalService.findByCode(entity.getCategorieDeLocal().getCode())==null){
+            return -2;
         }else{
-
             tauxTaxeTrimestrielleDao.save(entity);
             return 1;
         }
 
     }
+    @Autowired
+    private CategorieDeLocalServiceImpl categorieDeLocalService;
 }

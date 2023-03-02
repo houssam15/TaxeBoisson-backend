@@ -10,11 +10,11 @@ import java.util.List;
 
 @Service
 
-public class LocalService {
+public class LocalServiceImpl {
     @Autowired
     private LocalDao localDao;
 @Autowired
-    private RedevableService redevableService;
+    private RedevableServiceImpl redevableService;
 
     public List<Local> findByRedevableCin(String cin){
         return localDao.findByRedevableCin(cin);

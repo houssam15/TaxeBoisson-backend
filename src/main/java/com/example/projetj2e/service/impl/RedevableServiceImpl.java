@@ -1,8 +1,6 @@
 package com.example.projetj2e.service.impl;
 
 import com.example.projetj2e.bean.Redevable;
-import com.example.projetj2e.service.impl.LocalService;
-import com.example.projetj2e.dao.LocalDao;
 import com.example.projetj2e.dao.RedevableDao;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,12 +8,12 @@ import org.springframework.stereotype.Service;
 
 
 @Service
-public class RedevableService {
+public class RedevableServiceImpl {
     @Autowired
     private RedevableDao redevableDao;
 
     @Autowired
-    private LocalService localService;
+    private LocalServiceImpl localService;
 
 
     public Redevable findByCin(String cin) {
