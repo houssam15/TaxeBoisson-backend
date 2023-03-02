@@ -1,4 +1,0 @@
-package com.example.projetj2e.dao;
-
-public interface Secteur {
-}
