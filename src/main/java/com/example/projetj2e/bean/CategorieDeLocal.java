@@ -38,3 +38,4 @@ public class CategorieDeLocal {
         this.libelle = libelle;
     }
 }
+//hii
