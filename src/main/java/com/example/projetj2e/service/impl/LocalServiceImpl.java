@@ -13,7 +13,7 @@ import java.util.List;
 public class LocalService {
     @Autowired
     private LocalDao localDao;
-
+@Autowired
     private RedevableService redevableService;
 
     public List<Local> findByRedevableCin(String cin){
@@ -40,6 +40,9 @@ public class LocalService {
            localDao.save(local);
            return 1;
        }
+    }
+    public Local update(Local local){
+        return localDao.save(local);
     }
 
 }

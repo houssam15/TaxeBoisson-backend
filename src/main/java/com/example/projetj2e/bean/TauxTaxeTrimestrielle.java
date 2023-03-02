@@ -2,14 +2,16 @@ package com.example.projetj2e.bean;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 public class TauxTaxeTrimestrielle {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String ref;
-    private int dateAppMin;
-    private int dateAppMax;
+    private Date dateAppMin;
+    private Date dateAppMax;
 @ManyToOne
     private CategorieDeLocal categorieDeLocal;
     private double pourcentage;
@@ -32,19 +34,19 @@ public class TauxTaxeTrimestrielle {
         this.ref = ref;
     }
 
-    public int getDateAppMin() {
+    public Date getDateAppMin() {
         return dateAppMin;
     }
 
-    public void setDateAppMin(int dateAppMin) {
+    public void setDateAppMin(Date dateAppMin) {
         this.dateAppMin = dateAppMin;
     }
 
-    public int getDateAppMax() {
+    public Date getDateAppMax() {
         return dateAppMax;
     }
 
-    public void setDateAppMax(int dateAppMax) {
+    public void setDateAppMax(Date dateAppMax) {
         this.dateAppMax = dateAppMax;
     }
 

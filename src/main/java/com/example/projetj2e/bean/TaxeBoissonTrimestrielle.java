@@ -14,6 +14,8 @@ public class TaxeBoissonTrimestrielle {
     @ManyToOne
 
     private TauxTaxeTrimestrielle tauxTaxeTrimestrielle;
+    @ManyToOne
+    private Local local;
     private int retardMonths;
     private double montantBase;
     private double montantTotal;
@@ -100,4 +102,11 @@ public class TaxeBoissonTrimestrielle {
         this.montantRetardAutreMois = montantRetardAutreMois;
     }
 
+    public Local getLocal() {
+        return local;
+    }
+
+    public void setLocal(Local local) {
+        this.local = local;
+    }
 }
