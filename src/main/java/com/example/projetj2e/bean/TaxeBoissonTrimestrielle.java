@@ -21,6 +21,7 @@ public class TaxeBoissonTrimestrielle {
     private double montantTotal;
     private double montantRetardPremierMois;
     private double montantRetardAutreMois;
+    private double chifrreAffaire;
 
     public Long getId() {
         return id;
@@ -108,5 +109,13 @@ public class TaxeBoissonTrimestrielle {
 
     public void setLocal(Local local) {
         this.local = local;
+    }
+
+    public double getChifrreAffaire() {
+        return chifrreAffaire;
+    }
+
+    public void setChifrreAffaire(double chifrreAffaire) {
+        this.chifrreAffaire = chifrreAffaire;
     }
 }

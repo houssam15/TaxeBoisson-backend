@@ -16,9 +16,11 @@ import java.util.List;
 public class TaxeBoissonTrimestrielleRest {
 @Autowired
     private TaxeBoissonTrimestrielleService taxeBoissonTrimestrielleService;
+@Autowired
+    private TaxeBoissonTrimestrielleConverter taxeBoissonTrimestrielleConverter;
 @GetMapping("/findbyreference/{reference}")
-    public TaxeBoissonTrimestrielle findByReference(@PathVariable String reference) {
-    return taxeBoissonTrimestrielleService.findByReference(reference);
+    public TaxeBoissonTrimestielleDto findByReference(@PathVariable String reference) {
+    return taxeBoissonTrimestrielleConverter.toDto(taxeBoissonTrimestrielleService.findByReference(reference));
 
 }
 @DeleteMapping("/deletebyreference/{reference}")
@@ -27,11 +29,12 @@ public class TaxeBoissonTrimestrielleRest {
         return taxeBoissonTrimestrielleService.deleteByReference(reference);
     }
 @GetMapping("/")
-    public List<TaxeBoissonTrimestrielle> findAll() {
-        return taxeBoissonTrimestrielleService.findAll();
-    }
+    public List<TaxeBoissonTrimestielleDto> findAll() {
+        return taxeBoissonTrimestrielleConverter.toDto(taxeBoissonTrimestrielleService.findAll());
+}
 @PostMapping("/")
-    public int save(@RequestBody TaxeBoissonTrimestrielle entity) {
+    public int save(@RequestBody TaxeBoissonTrimestielleDto dto) {
+    TaxeBoissonTrimestrielle entity = taxeBoissonTrimestrielleConverter.toItem(dto);
         return taxeBoissonTrimestrielleService.save(entity);
     }
 }

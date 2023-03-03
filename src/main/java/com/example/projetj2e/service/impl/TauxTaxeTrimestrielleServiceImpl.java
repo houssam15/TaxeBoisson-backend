@@ -5,6 +5,7 @@ import com.example.projetj2e.dao.TauxTaxeTrimestrielleDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -24,16 +25,19 @@ public class TauxTaxeTrimestrielleServiceImpl {
         return tauxTaxeTrimestrielleDao.findAll();
     }
 
-    public TauxTaxeTrimestrielle findByCategorieDeLocalCode(String code) {
-        return tauxTaxeTrimestrielleDao.findByCategorieDeLocalCode(code);
+    public TauxTaxeTrimestrielle findByCategorieDeLocalCodeAAndDateAppMinGreaterThanAndDateAppMaxLessThan(String code, Date date) {
+        return tauxTaxeTrimestrielleDao.findByCategorieDeLocalCodeAAndDateAppMinGreaterThanAndDateAppMaxLessThan(code, date);
     }
 
     public int save(TauxTaxeTrimestrielle entity) {
-        if(findByRef(entity.getRef())==null){
-            return -1;
+        if(findByRef(entity.getRef())!=null){
+            return -1;//déja exist
         }else if(categorieDeLocalService.findByCode(entity.getCategorieDeLocal().getCode())==null){
-            return -2;
-        }else{
+            return -2;//categorie de local n'exist pas
+        }else if(entity.getPourcentage()<0){
+            return -3;//pourcentage par chiffre d'affaire n'egative
+        }
+        else{
             tauxTaxeTrimestrielleDao.save(entity);
             return 1;
         }

@@ -1,10 +1,8 @@
 package com.example.projetj2e.bean;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
+@Entity
 public class TaxeBoissonAnnuel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,6 +10,7 @@ public class TaxeBoissonAnnuel {
     private String reference;
     @ManyToOne
     private Local local;
+    @ManyToOne
     private Redevable redevable;
     @ManyToOne
 

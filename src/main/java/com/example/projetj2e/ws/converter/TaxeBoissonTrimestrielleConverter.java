@@ -2,7 +2,9 @@ package com.example.projetj2e.ws.converter;
 
 import com.example.projetj2e.bean.TaxeBoissonTrimestrielle;
 import com.example.projetj2e.ws.dto.TaxeBoissonTrimestielleDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TaxeBoissonTrimestrielleConverter extends AbstractConverter<TaxeBoissonTrimestrielle, TaxeBoissonTrimestielleDto>{
 
 

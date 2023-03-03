@@ -5,6 +5,7 @@ import com.example.projetj2e.bean.Local;
 import com.example.projetj2e.bean.Redevable;
 import com.example.projetj2e.bean.TauxTaxeTrimestrielle;
 import jakarta.persistence.ManyToOne;
+import org.springframework.stereotype.Component;
 
 public class TaxeBoissonTrimestielleDto {
     private Long id;
