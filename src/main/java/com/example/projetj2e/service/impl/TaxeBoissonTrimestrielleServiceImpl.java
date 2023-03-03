@@ -84,7 +84,7 @@ public class TaxeBoissonTrimestrielleServiceImpl implements TaxeBoissonTrimestri
             return 1;
 
         }
-
+//hi
     }
     @Autowired
     private RedevableServiceImpl redevableService;
