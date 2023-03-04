@@ -34,7 +34,7 @@ public class TaxeBoissonTrimestrielleServiceImpl implements TaxeBoissonTrimestri
         if(findByReference(entity.getReference())!=null){
             return -1;//deja exist
         }else if(redevableService.findByCin(entity.getRedevable().getCin())==null){
-            return -2;//redevable n'exist pas
+               return -2;//redevable n'exist pas
         }
         else if(localService.findByReference(entity.getLocal().getRef())==null){
             return -3;//local n'exist pas
@@ -50,7 +50,7 @@ public class TaxeBoissonTrimestrielleServiceImpl implements TaxeBoissonTrimestri
         }
             //si le cetegorie change ou le date min et max  chnage ==> taux change
             Date dateActuelle = new Date();
-            entity.setTauxTaxeTrimestrielle(tauxTaxeTrimestrielleService.findByCategorieDeLocalCodeAAndDateAppMinGreaterThanAndDateAppMaxLessThan(entity.getCategorieDeLocal().getCode(),dateActuelle));
+            entity.setTauxTaxeTrimestrielle(tauxTaxeTrimestrielleService.findByCategorieDeLocalCodeAndDateAppMinGreaterThanAndDateAppMaxLessThan(entity.getCategorieDeLocal().getCode(),dateActuelle));
             //traitement
             //1 - calcul montant de base
             double chiffreAffaire=entity.getChifrreAffaire();
@@ -71,20 +71,19 @@ public class TaxeBoissonTrimestrielleServiceImpl implements TaxeBoissonTrimestri
             long diffInDays1 = TimeUnit.DAYS.convert(diffInMillies1, TimeUnit.MILLISECONDS); // convert the difference in milliseconds to days
             long diffInMillies2 = dateMaxRetard.getTime() - dateActuelle.getTime(); // calculate the difference in milliseconds
             long diffInDays2 = TimeUnit.DAYS.convert(diffInMillies2, TimeUnit.MILLISECONDS); // convert the difference in milliseconds to days
-
+            //inisialize montant retard avec 0
             if(diffInDays1<0){
                 //attende a la fin de trimestre pour payer le taxe
-                //ou
+                return -5;
             }else if(diffInDays2>0){
                 //vous aver en retard
-                //calcul les mois de retard
+                 entity.setRetardMonths();
 
             }
             //saving process
             return 1;
 
         }
-//hi
     }
     @Autowired
     private RedevableServiceImpl redevableService;

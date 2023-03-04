@@ -33,7 +33,7 @@ public class TaxeBoissonTrimestrielleConverter extends AbstractConverter<TaxeBoi
         TaxeBoissonTrimestrielle item=null;
         if(dto!=null){
             item=new TaxeBoissonTrimestrielle();
-           item.setId(dto.getId());
+            item.setId(dto.getId());
             item.setLocal(dto.getLocal());
             item.setCategorieDeLocal(dto.getCategorieDeLocal());
             item.setTauxTaxeTrimestrielle(dto.getTauxTaxeTrimestrielle());
