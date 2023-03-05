@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class TaxeBoissonTrimestrielleConverter extends AbstractConverter<TaxeBoissonTrimestrielle, TaxeBoissonTrimestielleDto>{
 
-
     @Override
     public TaxeBoissonTrimestielleDto toDto(TaxeBoissonTrimestrielle item) {
        TaxeBoissonTrimestielleDto dto =null;

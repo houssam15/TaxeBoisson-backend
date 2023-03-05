@@ -9,6 +9,6 @@ import java.util.Date;
 @Repository
 public interface TauxTaxeTrimestrielleDao extends JpaRepository<TauxTaxeTrimestrielle,Long> {
     TauxTaxeTrimestrielle findByRef(String reference);
-    TauxTaxeTrimestrielle findByCategorieDeLocalCodeAAndDateAppMinGreaterThanAndDateAppMaxLessThan(String code, Date date);
+    TauxTaxeTrimestrielle findByCategorieDeLocalCodeAndDateAppMinGreaterThanAndDateAppMaxLessThan(String code, Date date1,Date date2);
     int deleteByRef(String reference);
 }

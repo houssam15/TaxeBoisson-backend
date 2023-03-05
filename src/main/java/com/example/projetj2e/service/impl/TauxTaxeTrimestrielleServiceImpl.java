@@ -25,8 +25,8 @@ public class TauxTaxeTrimestrielleServiceImpl {
         return tauxTaxeTrimestrielleDao.findAll();
     }
 
-    public TauxTaxeTrimestrielle findByCategorieDeLocalCodeAAndDateAppMinGreaterThanAndDateAppMaxLessThan(String code, Date date) {
-        return tauxTaxeTrimestrielleDao.findByCategorieDeLocalCodeAAndDateAppMinGreaterThanAndDateAppMaxLessThan(code, date);
+    public TauxTaxeTrimestrielle findByCategorieDeLocalCodeAndDateAppMinGreaterThanAndDateAppMaxLessThan(String code, Date date1,Date date2) {
+        return tauxTaxeTrimestrielleDao.findByCategorieDeLocalCodeAndDateAppMinGreaterThanAndDateAppMaxLessThan(code, date1,date2);
     }
 
     public int save(TauxTaxeTrimestrielle entity) {
