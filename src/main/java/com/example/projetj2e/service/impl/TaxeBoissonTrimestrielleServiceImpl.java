@@ -123,7 +123,7 @@ public class TaxeBoissonTrimestrielleServiceImpl implements TaxeBoissonTrimestri
             entity.setLocal(local);
             taxeBoissonTrimestrielleDao.save(entity);
             return 1;
-
+//hh
         }
 
     }
