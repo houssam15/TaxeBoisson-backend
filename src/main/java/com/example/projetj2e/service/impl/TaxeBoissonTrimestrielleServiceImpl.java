@@ -38,7 +38,7 @@ public class TaxeBoissonTrimestrielleServiceImpl implements TaxeBoissonTrimestri
         }else if(redevableService.findByCin(entity.getRedevable().getCin())==null){
                return -2;//redevable n'exist pas
         }
-        else if(localService.findByReference(entity.getLocal().getRef())==null){
+        else if(localService.findByReference(entity.getLocal().getReference())==null){
             return -3;//local n'exist pas
         }else if(entity.getChifrreAffaire()<=0) {
             return -4;//chiffre d'affairre null ou negative
@@ -50,7 +50,7 @@ public class TaxeBoissonTrimestrielleServiceImpl implements TaxeBoissonTrimestri
             return -6;
         }
         else{
-            Local local = localService.findByReference(entity.getLocal().getRef());
+            Local local = localService.findByReference(entity.getLocal().getReference());
             if(local.getDernierDatePayTrimestriel()==null){
                 //first taxeTrimestrielle
                 Calendar cal0 = Calendar.getInstance();

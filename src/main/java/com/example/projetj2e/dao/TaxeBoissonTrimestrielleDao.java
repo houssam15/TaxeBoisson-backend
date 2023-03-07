@@ -16,7 +16,6 @@ import java.util.List;
 public interface TaxeBoissonTrimestrielleDao extends JpaRepository<TaxeBoissonTrimestrielle,Long> {
     TaxeBoissonTrimestrielle findByReference(String reference);
 
-    @Transactional
     int deleteByReference(String reference);
 }
 

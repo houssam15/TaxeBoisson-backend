@@ -32,12 +32,12 @@ public class LocalServiceImpl {
 
 
     public int save(Local local) {
-    if(findByReference(local.getRef())!=null){
+    if(findByReference(local.getReference())!=null){
            return -1;
     }else if(redevableService.findByCin(local.getRedevable().getCin())==null){
            return -2;
        }
-       else if(findByReference(local.getRef())!= null){
+       else if(findByReference(local.getReference())!= null){
            return -3;
        }
      else{

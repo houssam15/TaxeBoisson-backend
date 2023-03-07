@@ -8,7 +8,7 @@ import java.util.Date;
 public class Local {
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
         private Long id;
-        private String ref;
+        private String reference;
         @ManyToOne
         private Redevable redevable;
         @ManyToOne
@@ -27,12 +27,13 @@ public class Local {
         this.id = id;
     }
 
-    public String getRef() {
-        return ref;
+
+    public String getReference() {
+        return reference;
     }
 
-    public void setRef(String ref) {
-        this.ref = ref;
+    public void setReference(String reference) {
+        this.reference = reference;
     }
 
     public Redevable getRedevable() {
