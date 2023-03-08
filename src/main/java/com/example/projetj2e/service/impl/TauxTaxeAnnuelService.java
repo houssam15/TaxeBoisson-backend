@@ -44,10 +44,7 @@ public class TauxTaxeAnnuelService {
 
 
     }
-    //public double updatePourcentage(TauxTaxeAnnuel tauxTaxeAnnuel, Date date){
-        //TauxTaxeAnnuelDao tauxTaxeAnnuel1=findByReference( tauxTaxeAnnuel.getReference());
 
-    //}
 
 
 
