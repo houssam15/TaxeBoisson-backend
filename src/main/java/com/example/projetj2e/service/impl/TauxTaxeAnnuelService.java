@@ -27,6 +27,17 @@ public class TauxTaxeAnnuelService {
             tauxTaxeAnnuelDao.save(tauxTaxeAnnuel);
             return 1;
         }
+        /*public int updatePourcentage(String ref, double nouveaupr) {
+            TauxTaxeAnnuel tauxTaxeAnnuel1;
+            tauxTaxeAnnuel = findByRef(ref);
+
+            if (tauxTaxeAnnuel1 != null) {
+                tauxTaxeAnnuel1.setPourcentage(nouveaupr);
+                tauxTaxeAnnuelDao.save(tauxTaxeAnnuel1);
+                return 1;
+            } else return -1;
+        }*/
+
 
 
 
