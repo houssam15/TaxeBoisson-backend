@@ -1,11 +1,12 @@
-package com.example.projetj2e.bean;
+package com.example.projetj2e.ws.dto;
 
-import jakarta.persistence.*;
+import com.example.projetj2e.bean.Local;
+import com.example.projetj2e.bean.Notification;
+import com.example.projetj2e.bean.NotificationLocal;
+import com.example.projetj2e.bean.Redevable;
+import jakarta.persistence.ManyToOne;
 
-@Entity
-public class NotificationLocal {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class NotificationLocalDto extends NotificationLocal {
     private Long id;
     private String ref;
     @ManyToOne

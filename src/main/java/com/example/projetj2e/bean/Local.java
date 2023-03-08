@@ -27,13 +27,12 @@ public class Local {
         this.id = id;
     }
 
-
-    public String getReference() {
+    public String getRef() {
         return reference;
     }
 
-    public void setReference(String reference) {
-        this.reference = reference;
+    public void setRef(String ref) {
+        this.reference = ref;
     }
 
     public Redevable getRedevable() {

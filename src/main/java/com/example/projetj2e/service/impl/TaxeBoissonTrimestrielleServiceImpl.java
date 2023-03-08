@@ -8,9 +8,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.xml.crypto.Data;
 import java.time.Duration;
-import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -38,7 +36,7 @@ public class TaxeBoissonTrimestrielleServiceImpl implements TaxeBoissonTrimestri
         }else if(redevableService.findByCin(entity.getRedevable().getCin())==null){
                return -2;//redevable n'exist pas
         }
-        else if(localService.findByReference(entity.getLocal().getReference())==null){
+        else if(localService.findByReference(entity.getLocal().getRef())==null){
             return -3;//local n'exist pas
         }else if(entity.getChifrreAffaire()<=0) {
             return -4;//chiffre d'affairre null ou negative
@@ -50,7 +48,7 @@ public class TaxeBoissonTrimestrielleServiceImpl implements TaxeBoissonTrimestri
             return -6;
         }
         else{
-            Local local = localService.findByReference(entity.getLocal().getReference());
+            Local local = localService.findByReference(entity.getLocal().getRef());
             if(local.getDernierDatePayTrimestriel()==null){
                 //first taxeTrimestrielle
                 Calendar cal0 = Calendar.getInstance();

@@ -1,7 +1,6 @@
 package com.example.projetj2e.dao;
 
 import com.example.projetj2e.bean.TauxTaxeTrimestrielle;
-import jakarta.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

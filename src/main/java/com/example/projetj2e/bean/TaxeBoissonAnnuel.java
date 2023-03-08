@@ -17,10 +17,12 @@ public class TaxeBoissonAnnuel {
     private CategorieDeLocal categorieLocal;
     private int moisRetard;
     private double montantBase;
+    @ManyToOne
+    private TauxTaxeAnnuel tauxTaxeAnnuel;
     private double montantTotal;
     private double montantRetardPremierMois;
     private double montantRetardAutreMois;
-
+    private double ChifrreAffaireAnnuel;
     public Long getId() {
         return id;
     }
@@ -101,4 +103,19 @@ public class TaxeBoissonAnnuel {
         this.montantRetardAutreMois = montantRetardAutreMois;
     }
 
+    public double getChifrreAffaireAnnuel() {
+        return ChifrreAffaireAnnuel;
+    }
+
+    public void setChifrreAffaireAnnuel(double chifrreAffaireAnnuel) {
+        ChifrreAffaireAnnuel = chifrreAffaireAnnuel;
+    }
+
+    public TauxTaxeAnnuel getTauxTaxeAnnuel() {
+        return tauxTaxeAnnuel;
+    }
+
+    public void setTauxTaxeAnnuel(TauxTaxeAnnuel tauxTaxeAnnuel) {
+        this.tauxTaxeAnnuel = tauxTaxeAnnuel;
+    }
 }
