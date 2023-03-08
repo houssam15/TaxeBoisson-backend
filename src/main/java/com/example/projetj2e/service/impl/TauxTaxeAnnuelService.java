@@ -1,6 +1,7 @@
 package com.example.projetj2e.service.impl;
 
 import com.example.projetj2e.bean.CategorieDeLocal;
+import com.example.projetj2e.bean.TaxeBoissonAnnuel;
 import com.example.projetj2e.service.impl.CategorieDeLocalServiceImpl;
 import com.example.projetj2e.bean.TauxTaxeAnnuel;
 import com.example.projetj2e.dao.TauxTaxeAnnuelDao;
@@ -27,15 +28,16 @@ public class TauxTaxeAnnuelService {
             tauxTaxeAnnuelDao.save(tauxTaxeAnnuel);
             return 1;
         }
-        /*public int updatePourcentage(String ref, double nouveaupr) {
-            TauxTaxeAnnuel tauxTaxeAnnuel1;
-            tauxTaxeAnnuel = findByRef(ref);
 
-            if (tauxTaxeAnnuel1 != null) {
-                tauxTaxeAnnuel1.setPourcentage(nouveaupr);
-                tauxTaxeAnnuelDao.save(tauxTaxeAnnuel1);
-                return 1;
-            } else return -1;
+
+
+        /*public double taux(String ref, int annee){
+            double taux1=0.00;
+            // methode mn taxeBoisson annuel
+            taux1= findByRefAndAnnee( ref, annee);
+
+            return taux1;
+
         }*/
 
 
