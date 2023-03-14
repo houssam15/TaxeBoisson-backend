@@ -43,15 +43,11 @@ public class LocalServiceImpl implements LocalService {
            return -1;
     }else if(redevableService.findByCin(local.getRedevable().getCin())==null){
            return -2;
-       }
-       else if(findByReference(local.getReference())!= null){
-           return -3;
-       }
-     else{
+       } else{
             local.setDateAjoutDeLocal(new Date());
             local.setDernierDatePayTrimestriel(null);
             local.setDernierDatePayAnnuel(null);
-           localDao.save(local);
+            localDao.save(local);
            return 1;
        }
     }

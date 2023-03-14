@@ -43,11 +43,8 @@ public class SecteurServiceImpl implements SecteurService {
 
     @Override
     public int save(Secteur secteur) {
-        if(quartierService.findByCode(secteur.getQuartier().getCode())==null){
+        if(findByCode(secteur.getCode())!=null){
             return -1;
-        }
-        else if(secteurDao.findByCode(secteur.getCode())!=null){
-            return -2;
         } else{
             secteurDao.save(secteur);
             return 1;

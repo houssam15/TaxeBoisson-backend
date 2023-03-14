@@ -12,13 +12,7 @@ public class CategorieRedevableServiceImpl implements CategorieRedevableService 
 @Autowired
 private CategorieRedevableDao categorieRedevableDao;
 
-    public int save(CategorieRedevable entity) {
-        if(findByCode(entity.getCode())!=null){
-            return -1;
-        }
-         categorieRedevableDao.save(entity);
-        return 1;
-    }
+
 
     @Override
     public CategorieRedevable findByCode(String code) {
@@ -30,4 +24,11 @@ private CategorieRedevableDao categorieRedevableDao;
     public int deleteByCode(String code) {
         return categorieRedevableDao.deleteByCode(code);
     }
+    public int save(CategorieRedevable entity) {
+        if(findByCode(entity.getCode())!=null){
+            return -1;
+        }
+        categorieRedevableDao.save(entity);
+        return 1;
+        }
 }

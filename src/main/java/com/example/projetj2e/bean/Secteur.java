@@ -9,16 +9,9 @@ public class Secteur {
     private Long id;
     private String libelle;
     private String code;
-    @ManyToOne(cascade = CascadeType.REMOVE)
-    private Quartier quartier;
 
-    public Quartier getQuartier() {
-        return quartier;
-    }
 
-    public void setQuartier(Quartier quartier) {
-        this.quartier = quartier;
-    }
+
 
 
 

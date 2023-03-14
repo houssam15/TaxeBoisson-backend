@@ -8,6 +8,8 @@ public class Quartier {
     private Long id;
     private String libelle;
     private String code;
+    @ManyToOne
+    private Secteur secteur;
 
     public Long getId() {
         return id;

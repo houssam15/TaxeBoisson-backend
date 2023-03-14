@@ -26,6 +26,9 @@ public class CategorieDeLocalServiceImpl implements CategorieDeLocalService {
     }
 
     public  int save(CategorieDeLocal entity) {
+        if(findByCode(entity.getCode())!=null){
+            return 1;
+        }else
         categorieDeLocalDao.save(entity);
         return 1;
     }

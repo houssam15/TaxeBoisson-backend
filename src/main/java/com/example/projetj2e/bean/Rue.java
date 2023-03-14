@@ -9,14 +9,15 @@ public class Rue {
     private String libelle;
     private String code;
 
-    @ManyToOne(cascade = CascadeType.REMOVE)
-    private Secteur secteur;
-    public Secteur getSecteur() {
-        return secteur;
+    @ManyToOne
+    private Quartier quartier;
+
+    public Quartier getQuartier() {
+        return quartier;
     }
 
-    public void setSecteur(Secteur secteur) {
-        this.secteur = secteur;
+    public void setQuartier(Quartier quartier) {
+        this.quartier = quartier;
     }
 
     public Long getId() {
