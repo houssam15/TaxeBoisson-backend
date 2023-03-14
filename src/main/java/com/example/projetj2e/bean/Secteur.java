@@ -1,9 +1,6 @@
 package com.example.projetj2e.bean;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Secteur {
@@ -12,6 +9,18 @@ public class Secteur {
     private Long id;
     private String libelle;
     private String code;
+    @ManyToOne(cascade = CascadeType.REMOVE)
+    private Quartier quartier;
+
+    public Quartier getQuartier() {
+        return quartier;
+    }
+
+    public void setQuartier(Quartier quartier) {
+        this.quartier = quartier;
+    }
+
+
 
     public Long getId() {
         return id;

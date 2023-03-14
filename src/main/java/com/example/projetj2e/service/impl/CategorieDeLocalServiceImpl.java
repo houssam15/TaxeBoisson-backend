@@ -2,13 +2,14 @@ package com.example.projetj2e.service.impl;
 
 import com.example.projetj2e.bean.CategorieDeLocal;
 import com.example.projetj2e.dao.CategorieDeLocalDao;
+import com.example.projetj2e.service.facade.CategorieDeLocalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class CategorieDeLocalServiceImpl {
+public class CategorieDeLocalServiceImpl implements CategorieDeLocalService {
     @Autowired
     private CategorieDeLocalDao categorieDeLocalDao;
 
@@ -24,9 +25,8 @@ public class CategorieDeLocalServiceImpl {
         return categorieDeLocalDao.findAll();
     }
 
-    public int save(CategorieDeLocal entity) {
-
-                categorieDeLocalDao.save(entity);
+    public  int save(CategorieDeLocal entity) {
+        categorieDeLocalDao.save(entity);
         return 1;
     }
 }

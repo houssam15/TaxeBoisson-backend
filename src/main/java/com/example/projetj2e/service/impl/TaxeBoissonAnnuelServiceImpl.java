@@ -35,7 +35,7 @@ public class TaxeBoissonAnnuelServiceImpl implements TaxeBoissonAnnuelService {
             return -1; // déjà existant
         } else if (redevableService.findByCin(entity.getRedevable().getCin()) == null) {
             return -2; // redevable inexistant
-        } else if (localService.findByReference(entity.getLocal().getRef()) == null) {
+        } else if (localService.findByReference(entity.getLocal().getReference()) == null) {
             return -3; // local inexistant
         } else if (entity.getLocal().getDernierDatePayTrimestriel() == null) {
             return -4; // dernier date de payement trimestriel inexistante
@@ -44,7 +44,7 @@ public class TaxeBoissonAnnuelServiceImpl implements TaxeBoissonAnnuelService {
         } else {
             if(entity.getLocal().getCategorieDeLocal().getCode()!=entity.getCategorieLocal().getCode()) {
                 //si le categorie de local est change en doit fait le mise ajour de categorie
-                Local local = localService.findByReference(entity.getLocal().getRef());
+                Local local = localService.findByReference(entity.getLocal().getReference());
                 local.setCategorieDeLocal(entity.getCategorieLocal());
                 localService.update(local);
             }

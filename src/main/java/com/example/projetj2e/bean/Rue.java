@@ -8,8 +8,16 @@ public class Rue {
     private Long id;
     private String libelle;
     private String code;
-    @ManyToOne
-    private Quartier quartier;
+
+    @ManyToOne(cascade = CascadeType.REMOVE)
+    private Secteur secteur;
+    public Secteur getSecteur() {
+        return secteur;
+    }
+
+    public void setSecteur(Secteur secteur) {
+        this.secteur = secteur;
+    }
 
     public Long getId() {
         return id;
@@ -35,11 +43,5 @@ public class Rue {
         this.code = code;
     }
 
-    public Quartier getQuartier() {
-        return quartier;
-    }
 
-    public void setQuartier(Quartier quartier) {
-        this.quartier = quartier;
-    }
 }

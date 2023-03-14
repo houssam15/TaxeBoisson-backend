@@ -1,23 +1,25 @@
-package com.example.projetj2e.bean;
+package com.example.projetj2e.ws.dto;
 
-import jakarta.persistence.*;
+import com.example.projetj2e.bean.CategorieDeLocal;
+import com.example.projetj2e.bean.Redevable;
+import com.example.projetj2e.bean.Rue;
+import jakarta.persistence.ManyToOne;
 
 import java.util.Date;
 
-@Entity
-public class Local {
-    @Id @GeneratedValue(strategy = GenerationType.AUTO)
-        private Long id;
-        private String reference;
-        @ManyToOne
-        private Redevable redevable;
-        @ManyToOne
-        private CategorieDeLocal categorieDeLocal;
-        Date dateAjoutDeLocal;
-        private Date dernierDatePayTrimestriel;
-        private Date dernierDatePayAnnuel;
-        @ManyToOne
-        private Rue rue;
+public class LocalDto {
+    private Long id;
+    private String reference;
+    @ManyToOne
+    private Redevable redevable;
+    @ManyToOne
+    private CategorieDeLocal categorieDeLocal;
+    private Date dernierDatePayTrimestriel;
+    private Date dernierDatePayAnnuel;
+    @ManyToOne
+    private Rue rue;
+
+
 
     public Long getId() {
         return id;
@@ -73,13 +75,5 @@ public class Local {
 
     public void setRue(Rue rue) {
         this.rue = rue;
-    }
-
-    public Date getDateAjoutDeLocal() {
-        return dateAjoutDeLocal;
-    }
-
-    public void setDateAjoutDeLocal(Date dateAjoutDeLocal) {
-        this.dateAjoutDeLocal = dateAjoutDeLocal;
     }
 }

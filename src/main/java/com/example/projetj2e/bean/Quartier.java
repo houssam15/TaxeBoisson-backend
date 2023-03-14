@@ -8,8 +8,6 @@ public class Quartier {
     private Long id;
     private String libelle;
     private String code;
-    @ManyToOne
-    private Secteur secteur;
 
     public Long getId() {
         return id;
@@ -35,11 +33,5 @@ public class Quartier {
         this.code = code;
     }
 
-    public Secteur getSecteur() {
-        return secteur;
-    }
 
-    public void setSecteur(Secteur secteur) {
-        this.secteur = secteur;
-    }
 }
