@@ -18,8 +18,8 @@ import java.util.List;
 public class CategorieDeLocalRest {
     @Autowired
     private CategorieDeLocalService categorieDeLocalService;
-@Autowired
-private CategorieDeLocalConverter categorieDeLocalConverter;
+    @Autowired
+    private CategorieDeLocalConverter categorieDeLocalConverter;
     public CategorieDeLocalDto findByCode(String code) {
         CategorieDeLocal categorieDeLocal = categorieDeLocalService.findByCode(code);
         return categorieDeLocalConverter.toDto(categorieDeLocal);
@@ -34,7 +34,7 @@ private CategorieDeLocalConverter categorieDeLocalConverter;
         List<CategorieDeLocal> all = categorieDeLocalService.findAll();
         return categorieDeLocalConverter.toDto(all);
     }
-@PostMapping("/")
+    @PostMapping("/")
     public int save(CategorieDeLocal entity) {
         return categorieDeLocalService.save(entity);
     }

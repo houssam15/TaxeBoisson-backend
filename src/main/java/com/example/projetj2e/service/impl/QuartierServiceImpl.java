@@ -11,8 +11,7 @@ import org.springframework.stereotype.Service;
 public class QuartierServiceImpl implements QuartierService {
     @Autowired
     private QuartierDao quartierDao;
-    @Autowired
-    private SecteurServiceImpl secteurService;
+
     @Override
     public Quartier findByCode(String code) {
         return quartierDao.findByCode(code);
@@ -22,12 +21,6 @@ public class QuartierServiceImpl implements QuartierService {
     public int deleteByCode(String code) {
         return quartierDao.deleteByCode(code);
     }
-
-    @Override
-    public Quartier findBySecteurCode(String code) {
-        return quartierDao.findBySecteurCode(code) ;
-    }
-
     @Override
     public int save(Quartier quartier) {
         if(quartierDao.findByCode(quartier.getCode())!=null){

@@ -3,6 +3,7 @@ package com.example.projetj2e.service.impl;
 import com.example.projetj2e.bean.Local;
 import com.example.projetj2e.bean.Rue;
 import com.example.projetj2e.dao.RueDao;
+import com.example.projetj2e.service.facade.QuartierService;
 import com.example.projetj2e.service.impl.LocalServiceImpl;
 import com.example.projetj2e.service.impl.QuartierServiceImpl;
 import com.example.projetj2e.service.facade.RueService;
@@ -15,12 +16,8 @@ public class RueServiceImpl implements RueService {
     @Autowired
     private RueDao rueDao;
     @Autowired
-    private SecteurService secteurService;
+    private QuartierService quartierService;
     // private Local local;
-    @Override
-    public Rue findByLocalReference(String reference) {
-        return rueDao.findByLocalReference(reference);
-    }
 
     @Override
     public Rue findByCode(String code) {
@@ -28,11 +25,11 @@ public class RueServiceImpl implements RueService {
     }
 
     @Override
-   public int deleteBySecteurCode(String code){return rueDao.deleteBySecteurCode(code);}
+   public int deleteByQuartierCode(String code){return rueDao.deleteByQuartierCode(code);}
 
     @Override
     public int save(Rue rue) {
-        if (secteurService.findByCode(rue.getSecteur().getCode())==null){
+        if (quartierService.findByCode(rue.getQuartier().getCode())==null){
             return -1;
         }
 

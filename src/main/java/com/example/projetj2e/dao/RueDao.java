@@ -13,8 +13,7 @@ import java.util.List;
 public interface RueDao  extends JpaRepository<Rue,Long> {
 
        Rue findByCode(String code);
-       int deleteBySecteurCode(String code);
+       int deleteByQuartierCode(String code);
 
 
-       Rue findByLocalReference(String reference);
 }

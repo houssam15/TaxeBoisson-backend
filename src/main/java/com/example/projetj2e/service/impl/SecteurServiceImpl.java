@@ -17,8 +17,6 @@ public class SecteurServiceImpl implements SecteurService {
     private SecteurDao secteurDao;
    @Autowired
    private QuartierService quartierService;
-   @Autowired
-   private RueServiceImpl rueService;
     @Override
     public Secteur findByCode(String code) {
         return secteurDao.findByCode(code);
@@ -26,15 +24,11 @@ public class SecteurServiceImpl implements SecteurService {
 
     @Override
     public int deleteByCode(String code) {
-        int resultatRue=rueService.deleteBySecteurCode(code);
+        int resultatQuartier= quartierService.deleteByCode(code);
         int resultatSecteur=secteurDao.deleteByCode(code);
-        return resultatSecteur+resultatRue;
+        return resultatSecteur+resultatQuartier;
     }
 
-    @Override
-    public Secteur findByRueCode(String code) {
-        return secteurDao.findByRueCode(code);
-    }
 
     @Override
     public List<Secteur> findAll() {

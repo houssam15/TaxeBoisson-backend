@@ -16,7 +16,7 @@ public class LocalRest {
   private LocalService localService;
     @Autowired
     private LocalConverter localConverter;
-     @GetMapping("/reference/{reference")
+     @GetMapping("/reference/{reference}")
     public LocalDto findByReference(@PathVariable String reference) {
         Local local= localService.findByReference(reference);
         LocalDto localDto= localConverter.toDto(local);

@@ -9,9 +9,7 @@ public interface SecteurService {
 
     int deleteByCode(String code);
 
-    Secteur findByRueCode(String code);
 
-    //   int deleteBySecteurCode(String code);
     List<Secteur> findAll();
     int save(Secteur secteur);
 
