@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+//save work
 
 @RestController
 @RequestMapping("api/v1/redevable")
@@ -19,13 +20,13 @@ public class RedevableRest {
     @Autowired
     RedevableConverter redevableConverter;
     @GetMapping("/cin/{cin}")
-    public RedevableDto findByCin(String cin) {
+    public RedevableDto findByCin(@PathVariable String cin) {
         Redevable redevable=redevableService.findByCin(cin);
         RedevableDto redevableDto= redevableConverter.toDto(redevable);
         return redevableDto;
     }
     @DeleteMapping("/cin/{cin}")
-    public  int deleteByCin(String cin){
+    public  int deleteByCin(@PathVariable String cin){
         return redevableService.deleteByCin(cin);
     }
     @GetMapping("/id/{id}")
@@ -35,10 +36,11 @@ public class RedevableRest {
         return redevableDto;
     }
     @PostMapping("/")
-    public int save(RedevableDto redevableDto) {
+    public int save(@RequestBody RedevableDto redevableDto) {
         Redevable redevable=redevableConverter.toItem(redevableDto);
         return redevableService.save(redevable);
     }
+
     @GetMapping("/")
     public List<RedevableDto> findAll() {
         List<Redevable> redevables = redevableService.findAll();

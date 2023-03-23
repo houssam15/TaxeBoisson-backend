@@ -13,6 +13,7 @@ public class CategorieDeLocalConverter extends AbstractConverter<CategorieDeLoca
     public CategorieDeLocalDto toDto(CategorieDeLocal item) {
         CategorieDeLocalDto dto=null;
         if(item!=null){
+            dto = new CategorieDeLocalDto();
             dto.setId(item.getId());
             dto.setCode(item.getCode());
             dto.setLibelle(item.getLibelle());
@@ -25,6 +26,7 @@ public class CategorieDeLocalConverter extends AbstractConverter<CategorieDeLoca
     public CategorieDeLocal toItem(CategorieDeLocalDto dto) {
         CategorieDeLocal item=null;
         if (dto != null) {
+            item = new CategorieDeLocal();
             item.setId(dto.getId());
             item.setCode(dto.getCode());
             item.setLibelle(dto.getLibelle());

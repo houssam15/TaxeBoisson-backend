@@ -5,9 +5,9 @@ import com.example.projetj2e.service.facade.CategorieRedevableService;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+//work
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/categorieredevable")
 public class CategorieRedevableRest {
     @Autowired
     private CategorieRedevableService categorieRedevableService;
