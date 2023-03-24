@@ -2,6 +2,8 @@ package com.example.projetj2e.ws.impl;
 
 import com.example.projetj2e.bean.CategorieRedevable;
 import com.example.projetj2e.service.facade.CategorieRedevableService;
+import com.example.projetj2e.ws.converter.CategorieRedevableConverter;
+import com.example.projetj2e.ws.dto.CategorieRedevableDto;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -11,9 +13,13 @@ import org.springframework.web.bind.annotation.*;
 public class CategorieRedevableRest {
     @Autowired
     private CategorieRedevableService categorieRedevableService;
-@GetMapping("/findbycode/{code}")
-    public CategorieRedevable findByCode(@PathVariable String code) {
-        return categorieRedevableService.findByCode(code);
+    @Autowired
+    private CategorieRedevableConverter categorieRedevableConverter;
+
+    @GetMapping("/findbycode/{code}")
+    public CategorieRedevableDto findByCode(@PathVariable String code) {
+    CategorieRedevable item = categorieRedevableService.findByCode(code);
+    return categorieRedevableConverter.toDto(item);
     }
 
     @Transactional
@@ -22,7 +28,8 @@ public class CategorieRedevableRest {
         return categorieRedevableService.deleteByCode(code);
     }
     @PostMapping("/")
-    public int save(@RequestBody  CategorieRedevable entity) {
-        return categorieRedevableService.save(entity);
+    public int save(@RequestBody  CategorieRedevableDto dto) {
+    CategorieRedevable entity = categorieRedevableConverter.toItem(dto);
+    return categorieRedevableService.save(entity);
     }
 }

@@ -15,6 +15,7 @@ public class RedevableConverter extends AbstractConverter<Redevable,RedevableDto
             dto.setCin(item.getCin());
             dto.setNom(item.getNom());
             dto.setPrenom(item.getPrenom());
+            dto.setCategorieRedevable(item.getCategorieRedevable());
         }
         return  dto;
     }
@@ -27,6 +28,7 @@ public class RedevableConverter extends AbstractConverter<Redevable,RedevableDto
             item.setCin(dto.getCin());
             item.setNom(dto.getNom());
             item.setPrenom(dto.getPrenom());
+            item.setCategorieRedevable(dto.getCategorieRedevable());
         }
         return  item;
     }

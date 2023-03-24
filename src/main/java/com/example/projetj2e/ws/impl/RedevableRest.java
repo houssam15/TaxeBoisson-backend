@@ -19,22 +19,22 @@ public class RedevableRest {
     private RedevableService redevableService;
     @Autowired
     RedevableConverter redevableConverter;
-    @GetMapping("/cin/{cin}")
+    @GetMapping("/findbycin/{cin}")
     public RedevableDto findByCin(@PathVariable String cin) {
         Redevable redevable=redevableService.findByCin(cin);
         RedevableDto redevableDto= redevableConverter.toDto(redevable);
         return redevableDto;
     }
-    @DeleteMapping("/cin/{cin}")
+    @DeleteMapping("/deletebycin/{cin}")
     public  int deleteByCin(@PathVariable String cin){
         return redevableService.deleteByCin(cin);
     }
-    @GetMapping("/id/{id}")
+   /* @GetMapping("/id/{id}")
     public RedevableDto getOne(@PathVariable Long id) {
         Redevable redevable = redevableService.getOne(id);
          RedevableDto redevableDto= redevableConverter.toDto(redevable);
         return redevableDto;
-    }
+    }*/
     @PostMapping("/")
     public int save(@RequestBody RedevableDto redevableDto) {
         Redevable redevable=redevableConverter.toItem(redevableDto);

@@ -46,7 +46,7 @@ public class Redevable {
     }
 
     public CategorieRedevable getCategorieRedevable() {
-        return categorieRedevable;
+        return this.categorieRedevable;
     }
 
     public void setCategorieRedevable(CategorieRedevable categorieRedevable) {
