@@ -40,9 +40,7 @@ public class RedevableServiceImpl implements RedevableService {
     }
 
     public int save(Redevable redevable) {
-        CategorieRedevable categorieRedevable = redevable.getCategorieRedevable();
 
-        System.out.println(redevable.getCategorieRedevable().getCode());
         if (findByCin(redevable.getCin()) != null) {
             return -1;
         }else if(redevable.getCategorieRedevable()==null){

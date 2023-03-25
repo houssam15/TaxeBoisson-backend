@@ -10,6 +10,7 @@ public interface LocalService {
     List<Local> findByRedevableCin(String cin);
    int deleteByRedevableCin(String cin);
    int deleteByReference(String Reference);
+    List<Local> findAll();
     int save(Local local);
 
 }

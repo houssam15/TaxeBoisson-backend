@@ -14,6 +14,8 @@ public class LocalDto {
     private Redevable redevable;
     @ManyToOne
     private CategorieDeLocal categorieDeLocal;
+    private Date dateAjoutDeLocal;
+
     private Date dernierDatePayTrimestriel;
     private Date dernierDatePayAnnuel;
     @ManyToOne
@@ -75,5 +77,13 @@ public class LocalDto {
 
     public void setRue(Rue rue) {
         this.rue = rue;
+    }
+
+    public Date getDateAjoutDeLocal() {
+        return dateAjoutDeLocal;
+    }
+
+    public void setDateAjoutDeLocal(Date dateAjoutDeLocal) {
+        this.dateAjoutDeLocal = dateAjoutDeLocal;
     }
 }

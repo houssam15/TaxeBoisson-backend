@@ -7,10 +7,18 @@ import com.example.projetj2e.service.facade.SecteurService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class QuartierServiceImpl implements QuartierService {
     @Autowired
     private QuartierDao quartierDao;
+    @Autowired
+    private SecteurServiceImpl secteurService;
+
+    public List<Quartier> findAll() {
+        return quartierDao.findAll();
+    }
 
     @Override
     public Quartier findByCode(String code) {
@@ -23,10 +31,15 @@ public class QuartierServiceImpl implements QuartierService {
     }
     @Override
     public int save(Quartier quartier) {
-        if(quartierDao.findByCode(quartier.getCode())!=null){
+        if(findByCode(quartier.getCode())!=null){
             return -1;
+        }else if(quartier.getSecteur()==null){
+            return -2;
+        } else if(secteurService.findByCode(quartier.getSecteur().getCode())==null){
+            return -3;
         }
         else{
+            quartier.setSecteur(secteurService.findByCode(quartier.getSecteur().getCode()));
             quartierDao.save(quartier);
             return 1;
         }

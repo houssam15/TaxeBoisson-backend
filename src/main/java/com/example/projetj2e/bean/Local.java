@@ -13,7 +13,7 @@ public class Local {
         private Redevable redevable;
         @ManyToOne
         private CategorieDeLocal categorieDeLocal;
-        Date dateAjoutDeLocal;
+        private Date dateAjoutDeLocal;
         private Date dernierDatePayTrimestriel;
         private Date dernierDatePayAnnuel;
         @ManyToOne
@@ -82,4 +82,5 @@ public class Local {
     public void setDateAjoutDeLocal(Date dateAjoutDeLocal) {
         this.dateAjoutDeLocal = dateAjoutDeLocal;
     }
+
 }

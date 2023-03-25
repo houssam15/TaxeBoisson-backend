@@ -13,16 +13,16 @@ import java.util.List;
 @RequestMapping("api/v1/local")
 public class LocalRest {
    @Autowired
-  private LocalService localService;
-    @Autowired
-    private LocalConverter localConverter;
+   private LocalService localService;
+   @Autowired
+   private LocalConverter localConverter;
      @GetMapping("/reference/{reference}")
     public LocalDto findByReference(@PathVariable String reference) {
         Local local= localService.findByReference(reference);
         LocalDto localDto= localConverter.toDto(local);
         return  localDto;
     }
-     @GetMapping("/")
+     @GetMapping("/findByRedevableCin/{cin}")
     public List<LocalDto> findByRedevableCin(@PathVariable String cin) {
       List<Local> locals=   localService.findByRedevableCin(cin);
       List<LocalDto> localDtos=localConverter.toDto(locals);
@@ -32,9 +32,19 @@ public class LocalRest {
     public int deleteByRedevableCin(@PathVariable String cin) {
         return localService.deleteByRedevableCin(cin);
     }
-      @PostMapping("/")
-    public int save(LocalDto localDto) {
+
+    @PostMapping("/")
+    public int save(@RequestBody LocalDto localDto) {
         Local local= localConverter.toItem(localDto);
         return localService.save(local);
     }
+@DeleteMapping("/deletebyreference/{reference}")
+    public int deleteByReference(@PathVariable String reference) {
+        return localService.deleteByReference(reference);
+    }
+@GetMapping("/")
+    public List<LocalDto> findAll() {
+        List<Local> locals=localService.findAll();
+    return localConverter.toDto(locals);
+     }
 }
