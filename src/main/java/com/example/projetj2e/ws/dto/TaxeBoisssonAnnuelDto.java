@@ -3,24 +3,18 @@ package com.example.projetj2e.ws.dto;
 import com.example.projetj2e.bean.CategorieDeLocal;
 import com.example.projetj2e.bean.Local;
 import com.example.projetj2e.bean.Redevable;
-import com.example.projetj2e.bean.TauxTaxeTrimestrielle;
-import jakarta.persistence.ManyToOne;
-import org.springframework.stereotype.Component;
+import com.example.projetj2e.bean.TauxTaxeAnnuel;
 
-public class TaxeBoissonTrimestielleDto {
+
+public class TaxeBoisssonAnnuelDto {
     private Long id;
     private String reference;
-    @ManyToOne
-    private Redevable redevable;
-    @ManyToOne
-    private CategorieDeLocal categorieDeLocal;
-    @ManyToOne
-
-    private TauxTaxeTrimestrielle tauxTaxeTrimestrielle;
-    @ManyToOne
+    private TauxTaxeAnnuel tauxTaxeAnnuel;
     private Local local;
-    private int retardMonths;
-    private double montantBase;
+    private Redevable redevable;
+    private CategorieDeLocal categorieDeLocal;
+    private int moisRetard;
+    private double chifrreAffaireAnnuel;
     private double montantTotal;
     private double montantRetardPremierMois;
     private double montantRetardAutreMois;
@@ -41,6 +35,22 @@ public class TaxeBoissonTrimestielleDto {
         this.reference = reference;
     }
 
+    public TauxTaxeAnnuel getTauxTaxeAnnuel() {
+        return tauxTaxeAnnuel;
+    }
+
+    public void setTauxTaxeAnnuel(TauxTaxeAnnuel tauxTaxeAnnuel) {
+        this.tauxTaxeAnnuel = tauxTaxeAnnuel;
+    }
+
+    public Local getLocal() {
+        return local;
+    }
+
+    public void setLocal(Local local) {
+        this.local = local;
+    }
+
     public Redevable getRedevable() {
         return redevable;
     }
@@ -57,36 +67,20 @@ public class TaxeBoissonTrimestielleDto {
         this.categorieDeLocal = categorieDeLocal;
     }
 
-    public TauxTaxeTrimestrielle getTauxTaxeTrimestrielle() {
-        return tauxTaxeTrimestrielle;
+    public int getMoisRetard() {
+        return moisRetard;
     }
 
-    public void setTauxTaxeTrimestrielle(TauxTaxeTrimestrielle tauxTaxeTrimestrielle) {
-        this.tauxTaxeTrimestrielle = tauxTaxeTrimestrielle;
+    public void setMoisRetard(int moisRetard) {
+        this.moisRetard = moisRetard;
     }
 
-    public Local getLocal() {
-        return local;
+    public double getChifrreAffaireAnnuel() {
+        return chifrreAffaireAnnuel;
     }
 
-    public void setLocal(Local local) {
-        this.local = local;
-    }
-
-    public int getRetardMonths() {
-        return retardMonths;
-    }
-
-    public void setRetardMonths(int retardMonths) {
-        this.retardMonths = retardMonths;
-    }
-
-    public double getMontantBase() {
-        return montantBase;
-    }
-
-    public void setMontantBase(double montantBase) {
-        this.montantBase = montantBase;
+    public void setChifrreAffaireAnnuel(double chifrreAffaireAnnuel) {
+        this.chifrreAffaireAnnuel = chifrreAffaireAnnuel;
     }
 
     public double getMontantTotal() {

@@ -9,26 +9,42 @@ public class TaxeBoissonAnnuel {
     private Long id;
     private String reference;
     @ManyToOne
+    private TauxTaxeAnnuel tauxTaxeAnnuel;
+    @ManyToOne
     private Local local;
     @ManyToOne
     private Redevable redevable;
     @ManyToOne
 
-    private CategorieDeLocal categorieLocal;
+    private CategorieDeLocal categorieDeLocal;
     private int moisRetard;
-    private double montantBase;
-    @ManyToOne
-    private TauxTaxeAnnuel tauxTaxeAnnuel;
+    private double chifrreAffaireAnnuel;
     private double montantTotal;
     private double montantRetardPremierMois;
     private double montantRetardAutreMois;
-    private double ChifrreAffaireAnnuel;
+
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public TauxTaxeAnnuel getTauxTaxeAnnuel() {
+        return tauxTaxeAnnuel;
+    }
+
+    public CategorieDeLocal getCategorieDeLocal() {
+        return categorieDeLocal;
+    }
+
+    public void setCategorieDeLocal(CategorieDeLocal categorieDeLocal) {
+        this.categorieDeLocal = categorieDeLocal;
+    }
+
+    public void setTauxTaxeAnnuel(TauxTaxeAnnuel tauxTaxeAnnuel) {
+        this.tauxTaxeAnnuel = tauxTaxeAnnuel;
     }
 
     public String getReference() {
@@ -55,13 +71,7 @@ public class TaxeBoissonAnnuel {
         this.redevable = redevable;
     }
 
-    public CategorieDeLocal getCategorieLocal() {
-        return categorieLocal;
-    }
 
-    public void setCategorieLocal(CategorieDeLocal categorieLocal) {
-        this.categorieLocal = categorieLocal;
-    }
 
     public int getMoisRetard() {
         return moisRetard;
@@ -71,16 +81,17 @@ public class TaxeBoissonAnnuel {
         this.moisRetard = moisRetard;
     }
 
-    public double getMontantBase() {
-        return montantBase;
-    }
-
-    public void setMontantBase(double montantBase) {
-        this.montantBase = montantBase;
-    }
 
     public double getMontantTotal() {
         return montantTotal;
+    }
+
+    public double getChifrreAffaireAnnuel() {
+        return chifrreAffaireAnnuel;
+    }
+
+    public void setChifrreAffaireAnnuel(double chifrreAffaireAnnuel) {
+        this.chifrreAffaireAnnuel = chifrreAffaireAnnuel;
     }
 
     public void setMontantTotal(double montantTotal) {
@@ -103,19 +114,4 @@ public class TaxeBoissonAnnuel {
         this.montantRetardAutreMois = montantRetardAutreMois;
     }
 
-    public double getChifrreAffaireAnnuel() {
-        return ChifrreAffaireAnnuel;
-    }
-
-    public void setChifrreAffaireAnnuel(double chifrreAffaireAnnuel) {
-        ChifrreAffaireAnnuel = chifrreAffaireAnnuel;
-    }
-
-    public TauxTaxeAnnuel getTauxTaxeAnnuel() {
-        return tauxTaxeAnnuel;
-    }
-
-    public void setTauxTaxeAnnuel(TauxTaxeAnnuel tauxTaxeAnnuel) {
-        this.tauxTaxeAnnuel = tauxTaxeAnnuel;
-    }
 }

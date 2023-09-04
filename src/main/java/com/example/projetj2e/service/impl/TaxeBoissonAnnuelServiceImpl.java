@@ -42,10 +42,10 @@ public class TaxeBoissonAnnuelServiceImpl implements TaxeBoissonAnnuelService {
         }else if(entity.getChifrreAffaireAnnuel()<=0) {
             return -5;//chiffre d'affairre null ou negative
         } else {
-            if(entity.getLocal().getCategorieDeLocal().getCode()!=entity.getCategorieLocal().getCode()) {
+            if(entity.getLocal().getCategorieDeLocal().getCode()!=entity.getCategorieDeLocal().getCode()) {
                 //si le categorie de local est change en doit fait le mise ajour de categorie
                 Local local = localService.findByReference(entity.getLocal().getReference());
-                local.setCategorieDeLocal(entity.getCategorieLocal());
+                local.setCategorieDeLocal(entity.getCategorieDeLocal());
                 localService.update(local);
             }
             Date dernierPayementTri = entity.getLocal().getDernierDatePayTrimestriel();
